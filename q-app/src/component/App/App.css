@@ -36,3 +36,76 @@
     transform: rotate(360deg);
   }
 }
+
+/* q-app css start */
+:root {
+  --main-color: #F45E5E;
+  --second-color:#FFC93E;
+  --card-bg-color:#FFF8E4;
+  --pane-padding: 5px 42px;
+}
+
+.clockIcon{
+  background-image: url(../clock_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+}
+
+.q-bg{
+  background-color: var(--second-color);
+}
+
+.q-button{
+  background-color: var(--main-color);
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.q-button:hover{
+  background-color: #E44848;
+  box-shadow: 0 3px 5px 0 rgb(0 0 0 / 10%), 0 3px 5px 0 rgb(0 0 0 / 5%);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--card-bg-color);
+  color: var(--main-color);
+  padding: 10px;
+  margin: 10px;
+}
+
+.flex-container p {
+  margin: 0px 10px;
+}
+
+.q-input{
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.q-input:focus-visible{
+  outline:2px solid var(--main-color);
+}
+
+/* .logo{
+  background-image: url("../../images/cathead.png") ;
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 200px;
+} */
