@@ -6,22 +6,23 @@ import Input from "../Input";
 import CardDisplay from "../CardDisplay";
 import CardContainer from "../CardContainer";
 import Keywords from "../Keyword";
-
+import Popup from "reactjs-popup";
+import PopupBox from "../PopUp";
 
 function App() {
 	const [question, setQuestion] = useState("");
 	const [questionArray, setQuestionArray] = useState([
-		{
-			id: "test",
-			name: "test",
-			room_number: "test",
-			message: "test",
-		},
+		// {
+		// 	id: "test",
+		// 	name: "test",
+		// 	room_number: "test",
+		// 	message: "test",
+		// },
 	]);
 	const [name, setName] = useState("");
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
-  const [keyword, setKeyword] = useState("")
+	const [keyword, setKeyword] = useState("");
 
 	function storeQuestion(event) {
 		setQuestion(event.target.value);
@@ -36,9 +37,9 @@ function App() {
 		setRoomNumber(event.target.value);
 	}
 
-  function storeKeyword(event) {
-    setKeyword(event)
-  }
+	function storeKeyword(event) {
+		setKeyword(event);
+	}
 
 	function clickSubmit() {
 		const questionObject = {
@@ -51,10 +52,11 @@ function App() {
 
 		setQuestionArray([...questionArray, questionObject]);
 		console.log(questionArray);
-    console.log(keyword)
+		console.log(keyword);
 		setQuestion("");
 		setName("");
 		setRoomNumber("");
+		setId(id + 1);
 
 		//Post request
 	}
@@ -62,7 +64,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Input
+				{/* <Input
 					placeholder={"Name"}
 					value={name}
 					handleChange={storeName}
@@ -77,9 +79,20 @@ function App() {
 					value={question}
 					handleChange={storeQuestion}
 				></Input>
-        <Keywords handleChange={storeKeyword}></Keywords>
-				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button>
+				<Keywords handleChange={storeKeyword}></Keywords>
+				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
 				<CardContainer array={questionArray} time={"12:00"}></CardContainer>
+				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
+				<PopupBox
+					nameValue={name}
+					nameHandleChange={storeName}
+					roomValue={roomNumber}
+					roomHandleChange={storeRoomNumber}
+					questionValue={question}
+					questionHandleChange={storeQuestion}
+					keywordsHandleChange={storeKeyword}
+					buttonHandleClick={clickSubmit}
+				></PopupBox>
 			</header>
 		</div>
 	);

@@ -8,6 +8,10 @@ const options = [
 	{ value: "Error", label: "Error" },
 ];
 
-const Keywords = ({handleChange}) => <Select onChange={handleChange} options={options} />;
+const Keywords = ({ handleChange }) => (
+	<Select onChange={handleChange} options={options} />
+);
 
 export default Keywords;
+
+//used https://react-select.com/home - can be edited and stylized - see docs.
