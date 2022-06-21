@@ -1,5 +1,5 @@
 import React from "react";
-import Keyword from "../Keyword";
+
 
 function CardDisplay(props) {
 	const array = props.array;
