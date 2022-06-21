@@ -5,6 +5,8 @@ import Button from "../Button";
 import Input from "../Input";
 import CardDisplay from "../CardDisplay";
 import CardContainer from "../CardContainer";
+import Keywords from "../Keyword";
+
 
 function App() {
 	const [question, setQuestion] = useState("");
@@ -19,6 +21,7 @@ function App() {
 	const [name, setName] = useState("");
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
+  const [keyword, setKeyword] = useState("")
 
 	function storeQuestion(event) {
 		setQuestion(event.target.value);
@@ -33,20 +36,25 @@ function App() {
 		setRoomNumber(event.target.value);
 	}
 
+  function storeKeyword(event) {
+    setKeyword(event)
+  }
+
 	function clickSubmit() {
 		const questionObject = {
 			id: id,
 			name: name,
 			room_number: roomNumber,
 			message: question,
-			keywords: keywords,
+			keyword: keyword.value,
 		};
 
 		setQuestionArray([...questionArray, questionObject]);
 		console.log(questionArray);
+    console.log(keyword)
 		setQuestion("");
 		setName("");
-		setRoomNumber(null);
+		setRoomNumber("");
 
 		//Post request
 	}
@@ -69,6 +77,7 @@ function App() {
 					value={question}
 					handleChange={storeQuestion}
 				></Input>
+        <Keywords handleChange={storeKeyword}></Keywords>
 				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button>
 				<CardContainer array={questionArray} time={"12:00"}></CardContainer>
 			</header>

@@ -1,7 +1,7 @@
 import React from "react";
 import Keyword from "../Keyword";
 
-function CardDisplay(props ) {
+function CardDisplay(props) {
 	const array = props.array;
 	return (
 		<div>
@@ -15,6 +15,9 @@ function CardDisplay(props ) {
 							<p>{array.name}</p>
 							<p>Room: {array.room_number}</p>
 							<p>Question: {array.message}</p>
+							<div>
+								<p>{array.keyword}</p>
+							</div>
 						</div>
 					</div>
 				);
