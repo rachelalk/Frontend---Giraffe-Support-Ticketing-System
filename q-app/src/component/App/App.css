@@ -102,6 +102,21 @@
   outline:2px solid var(--main-color);
 }
 
+
+.popUp-bg{
+  position: fixed;
+  top: 21%;
+  left: 50px;
+  background-color: #fff;
+  padding: 20px;}
+
+.closeBtn{
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
 /* .logo{
   background-image: url("../../images/cathead.png") ;
   background-position: top;
