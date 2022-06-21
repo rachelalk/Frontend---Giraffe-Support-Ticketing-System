@@ -39,6 +39,7 @@ function App() {
 			name: name,
 			room_number: roomNumber,
 			message: question,
+			keywords: keywords,
 		};
 
 		setQuestionArray([...questionArray, questionObject]);
