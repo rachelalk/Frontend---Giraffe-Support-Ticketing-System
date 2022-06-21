@@ -8,6 +8,8 @@ import CardContainer from "../CardContainer";
 import Keywords from "../Keyword";
 import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
+import moment from 'moment';
+moment().format();
 
 function App() {
 	const [question, setQuestion] = useState("");
@@ -23,6 +25,9 @@ function App() {
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
 	const [keyword, setKeyword] = useState("");
+  
+  //Add time :
+  let postTime = moment().format('MM-DD-YYYY hh:mm:ss');
 
 	function storeQuestion(event) {
 		setQuestion(event.target.value);
@@ -48,6 +53,7 @@ function App() {
 			room_number: roomNumber,
 			message: question,
 			keyword: keyword.value,
+      postTime: postTime,
 		};
 
 		setQuestionArray([...questionArray, questionObject]);
@@ -81,7 +87,7 @@ function App() {
 				></Input>
 				<Keywords handleChange={storeKeyword}></Keywords>
 				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
-				<CardContainer array={questionArray} time={"12:00"}></CardContainer>
+				<CardContainer array={questionArray}></CardContainer>
 				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
 				<PopupBox
 					nameValue={name}

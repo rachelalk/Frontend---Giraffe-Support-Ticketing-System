@@ -1,10 +1,10 @@
 import React from "react";
 import CardDisplay from "../CardDisplay";
 
-function CardContainer({ array, time }) {
+function CardContainer({ array }) {
 	return (
 		<div>
-			<CardDisplay time={time} array={array}></CardDisplay>
+			<CardDisplay array={array}></CardDisplay>
 		</div>
 	);
 }
