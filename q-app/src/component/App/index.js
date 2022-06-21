@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react"; //imported useEffect
 import "./App.css";
 import Button from "../Button";
 import Input from "../Input";
@@ -23,6 +23,7 @@ function App() {
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
 	const [keyword, setKeyword] = useState("");
+	const [backendData, setBackendData] = useState([{}]) //backendData useState
 
 	function storeQuestion(event) {
 		setQuestion(event.target.value);
@@ -60,6 +61,13 @@ function App() {
 
 		//Post request
 	}
+
+	useEffect(() => { //for backend
+		fetch("/tickets")
+			.then(res => res.json())
+			.then(data => {setBackendData(data)}
+		)
+	}, [])
 
 	return (
 		<div className="App">
