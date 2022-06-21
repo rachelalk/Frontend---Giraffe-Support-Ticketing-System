@@ -2,7 +2,7 @@ import React from "react"
 
 function Button({handleClick,buttonText}){
   return (
-    <button onclick={handleClick}>
+    <button onClick={handleClick}>
         {buttonText}
     </button>);
 }

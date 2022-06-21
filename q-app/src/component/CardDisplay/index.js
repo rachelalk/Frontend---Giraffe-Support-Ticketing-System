@@ -1,19 +1,26 @@
-import React from "react"
+import React from "react";
 import Keyword from "../Keyword";
 
-function CardDisplay({id,time,firstName,roomNumber}){
-  return (
-      <div>
-         <p>{id}</p>
-          <div>
-             <img src="#" alt="#"/>
-             <p>{time}</p>
-             <p>{firstName}</p>
-             <p>Room {roomNumber}</p>
-          </div>
-          <Keyword/>
-      </div>
-  )
+function CardDisplay(props ) {
+	const array = props.array;
+	return (
+		<div>
+			{array.map(function (array) {
+				return (
+					<div>
+						<p>{array.id}</p>
+						<div>
+							<img src="#" alt="#" />
+							<p>{props.time}</p>
+							<p>{array.name}</p>
+							<p>Room: {array.room_number}</p>
+							<p>Question: {array.message}</p>
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	);
 }
 
 export default CardDisplay;

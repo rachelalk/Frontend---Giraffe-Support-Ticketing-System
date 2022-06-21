@@ -1,11 +1,14 @@
-import React from "react"
+import React from "react";
 
-function Input({handleChange, placeHolder, value}){
-  return (
-    <Input type="text"
-    onChange={handleChange} placeholder={placeHolder} value={value}>
-       
-    </Input>);
+function Input({ handleChange, placeholder, value }) {
+	return (
+		<input
+			type="text"
+			placeholder={placeholder}
+			onChange={handleChange}
+			value={value}
+		></input>
+	);
 }
 
 export default Input;
