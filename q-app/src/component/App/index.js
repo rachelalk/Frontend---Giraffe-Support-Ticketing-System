@@ -96,6 +96,17 @@ function App() {
     message: "",
     keywords: keyword.value,
   });
+	function acceptQuery(clickedId) {
+		console.log(clickedId);
+	}
+	//console.log(event.currentTarget.id);
+	// setQuestionArray([...questionArray[id]])
+	useEffect(() => { //for backend
+		fetch("/tickets")
+			.then(res => res.json())
+			.then(data => {setBackendData(data)}
+		)
+	}, [])
 
   useEffect(() => {
     fetch("/tickets", {
@@ -129,27 +140,28 @@ function App() {
 				></Input>
 				<Keywords handleChange={storeKeyword}></Keywords>
 				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
-        <CardContainer
-          id={questionArray.id}
-          handleClick={() => {
-            acceptQuery(questionArray.id);
-          }}
-          array={questionArray}
-          time={"12:00"}></CardContainer>
-        {/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
-
-        <PopupBox
-          nameValue={name}
-          nameHandleChange={storeName}
-          roomValue={roomNumber}
-          roomHandleChange={storeRoomNumber}
-          questionValue={question}
-          questionHandleChange={storeQuestion}
-          keywordsHandleChange={storeKeyword}
-          buttonHandleClick={clickSubmit}></PopupBox>
-      </header>
-    </div>
-  );
+				<CardContainer
+					id={questionArray.id}
+					handleClick={() => {
+						acceptQuery(questionArray.id);
+					}}
+					array={questionArray}
+					time={"12:00"}
+				></CardContainer>
+				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
+				<PopupBox
+					nameValue={name}
+					nameHandleChange={storeName}
+					roomValue={roomNumber}
+					roomHandleChange={storeRoomNumber}
+					questionValue={question}
+					questionHandleChange={storeQuestion}
+					keywordsHandleChange={storeKeyword}
+					buttonHandleClick={clickSubmit}
+				></PopupBox>
+			</header>
+		</div>
+	);
 }
 
 export default App;

@@ -14,34 +14,35 @@ const PopupBox = ({
   keywordsHandleChange,
   buttonHandleClick,
 }) => (
-  <Popup
-    trigger={<button className="q-button">Ask</button>}
-    position="top left">
-    {(close) => (
-      <div className="popUp-bg">
-        Name:
-        <Input
-          placeholder={"Name"}
-          value={nameValue}
-          handleChange={nameHandleChange}></Input>
-        Room Number:
-        <Input
-          placeholder={"Room number"}
-          value={roomValue}
-          handleChange={roomHandleChange}></Input>
-        Question:
-        <Input
-          placeholder={"Enter question..."}
-          value={questionValue}
-          handleChange={questionHandleChange}></Input>
-        <Keywords handleChange={keywordsHandleChange}></Keywords>
-        <Button handleClick={buttonHandleClick} buttonText={"Submit"}></Button>
-        <a className="close closeBtn" onClick={close}>
-          &times;
-        </a>
-      </div>
-    )}
-  </Popup>
+	<Popup trigger={<button className="q-button">Ask</button>} position="top left">
+		{(close) => (
+			<div className="popUp-bg">
+				Name:
+				<Input
+					placeholder={"Name"}
+					value={nameValue}
+					handleChange={nameHandleChange}
+				></Input>
+				Room Number:
+				<Input
+					placeholder={"Room number"}
+					value={roomValue}
+					handleChange={roomHandleChange}
+				></Input>
+				Question:
+				<Input
+					placeholder={"Enter question..."}
+					value={questionValue}
+					handleChange={questionHandleChange}
+				></Input>
+				<Keywords handleChange={keywordsHandleChange}></Keywords>
+				<Button handleClick={buttonHandleClick} buttonText={"Submit"}></Button>
+				<a className="close closeBtn" onClick={close}>
+					&times;
+				</a>
+			</div>
+		)}
+	</Popup>
 );
 
 export default PopupBox;

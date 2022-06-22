@@ -1,6 +1,13 @@
 import React from "react";
+<<<<<<< HEAD
 import Button from "./Button/index.js"
+=======
+import Button from "../Button";
+>>>>>>> fdea001a2329363ecc0e3e9f6478bf5bbda4bcc3
 
+// function acceptQuery(clickedId) {
+// 	console.log(clickedId);
+// }
 
 function CardDisplay(props, handleClick) {
 	const array = props.array;
