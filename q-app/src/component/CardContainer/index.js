@@ -1,10 +1,16 @@
 import React from "react";
 import CardDisplay from "../CardDisplay";
+import InProgressCard from "../InProgressCard";
 
-function CardContainer({ array, time, handleClick}) {
+function CardContainer({ array, time, handleClick }) {
 	return (
 		<div>
-			<CardDisplay time={time} array={array} handleClick={handleClick}></CardDisplay>
+			<InProgressCard array={array} handleClick={handleClick}></InProgressCard>
+			<CardDisplay
+				time={time}
+				array={array}
+				handleClick={handleClick}
+			></CardDisplay>
 		</div>
 	);
 }
