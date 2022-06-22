@@ -8,6 +8,8 @@ import CardContainer from "../CardContainer";
 import Keywords from "../Keyword";
 import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
+import moment from 'moment';
+moment().format();
 
 function App() {
 	const [question, setQuestion] = useState("");
@@ -16,6 +18,10 @@ function App() {
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
 	const [keyword, setKeyword] = useState("");
+  
+  //Add time :
+  let postTime = moment().format('MM-DD-YYYY hh:mm:ss');
+
 	const [backendData, setBackendData] = useState([{}]); //backendData useState
 	const [status, setStatus] = useState("waiting");
 	const [ticketData, setTicketData] = useState({
@@ -52,6 +58,7 @@ function App() {
 	}
 
 	function clickSubmit() {
+
 		// const questionObject = {
 		// 	id: id,
 		// 	name: name,
@@ -140,6 +147,27 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
+
+				{/* <Input
+					placeholder={"Name"}
+					value={name}
+					handleChange={storeName}
+				></Input>
+				<Input
+					placeholder={"Room number"}
+					value={roomNumber}
+					handleChange={storeRoomNumber}
+				></Input>
+				<Input
+					placeholder={"Enter question..."}
+					value={question}
+					handleChange={storeQuestion}
+				></Input>
+				<Keywords handleChange={storeKeyword}></Keywords>
+				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
+				<CardContainer array={questionArray}></CardContainer>
+				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
+
 				<CardContainer
 					// id={backendData.ticket_id}
 					// handleClick={() => {
@@ -149,6 +177,7 @@ function App() {
 					array={backendData}
 					time={"12:00"}
 				></CardContainer>
+
 				<PopupBox
 					nameValue={name}
 					nameHandleChange={storeName}

@@ -1,6 +1,6 @@
 import React from "react";
+import Timer from "../Timer";
 import Button from "../Button/";
-import { useState } from "react";
 
 // function acceptQuery(clickedId) {
 // 	console.log(clickedId);
@@ -28,7 +28,7 @@ function CardDisplay(props) {
 							<p>{filteredArray.ticket_id}</p>
 							<div className="flex-container">
 								<div className="clockIcon"></div>
-								<p>{props.time}</p>
+									<Timer/>
 								<p>{filteredArray.name}</p>
 								<p>Room: {filteredArray.roomnumber}</p>
 								<p>Question: {filteredArray.message}</p>
