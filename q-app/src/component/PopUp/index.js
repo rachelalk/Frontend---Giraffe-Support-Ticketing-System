@@ -5,16 +5,21 @@ import Button from "../Button";
 import Keywords from "../Keyword";
 
 const PopupBox = ({
-  nameValue,
-  roomValue,
-  questionValue,
-  nameHandleChange,
-  roomHandleChange,
-  questionHandleChange,
-  keywordsHandleChange,
-  buttonHandleClick,
+	nameValue,
+	roomValue,
+	questionValue,
+	nameHandleChange,
+	roomHandleChange,
+	questionHandleChange,
+	keywordsHandleChange,
+	buttonHandleClick,
+	statusHandleChange,
+	statusValue
 }) => (
-	<Popup trigger={<button className="q-button">Ask</button>} position="top left">
+	<Popup
+		trigger={<button className="q-button">Ask</button>}
+		position="top left"
+	>
 		{(close) => (
 			<div className="popUp-bg">
 				Name:
@@ -34,6 +39,12 @@ const PopupBox = ({
 					placeholder={"Enter question..."}
 					value={questionValue}
 					handleChange={questionHandleChange}
+				></Input>
+				Status:
+				<Input
+					placeholder={"Status"}
+					value={statusValue}
+					handleChange={statusHandleChange}
 				></Input>
 				<Keywords handleChange={keywordsHandleChange}></Keywords>
 				<Button handleClick={buttonHandleClick} buttonText={"Submit"}></Button>

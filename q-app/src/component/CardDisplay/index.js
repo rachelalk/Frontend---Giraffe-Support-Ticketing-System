@@ -6,12 +6,12 @@ import { useState } from "react";
 // 	console.log(clickedId);
 // }
 
-	function acceptQuery(event) {
-		console.log(event.currentTarget.id);
-		// console.log(clickedId);
-	}
+function acceptQuery(event) {
+	console.log(event.currentTarget.id);
+	// console.log(clickedId);
+}
 
-function CardDisplay(props, handleClick) {
+function CardDisplay(props) {
 	const array = props.array;
 
 	if (array === undefined) {
@@ -21,29 +21,28 @@ function CardDisplay(props, handleClick) {
 	if (array) {
 		return (
 			<div>
-				{array.map(function (array) {
-					return (
-						<div key={array.ticket_id}>
-							<p>{array.ticket_id}</p>
+				{array
+					.filter((object) => object.status === "waiting")
+					.map((filteredArray) => (
+						<div key={filteredArray.ticket_id}>
+							<p>{filteredArray.ticket_id}</p>
 							<div className="flex-container">
 								<div className="clockIcon"></div>
 								<p>{props.time}</p>
-								<p>{array.name}</p>
-								<p>Room: {array.roomnumber}</p>
-								<p>Question: {array.message}</p>
+								<p>{filteredArray.name}</p>
+								<p>Room: {filteredArray.roomnumber}</p>
+								<p>Question: {filteredArray.message}</p>
 								<Button
 									buttonText={"Accept"}
 									handleClick={acceptQuery}
-									// handleClick={acceptQuery(this.id)}
-									id={array.ticket_id}
+									id={filteredArray.ticket_id}
 								></Button>
 								<div>
-									<p>{array.keywords}</p>
+									<p>{filteredArray.keywords}</p>
 								</div>
 							</div>
 						</div>
-					);
-				})}
+					))}
 			</div>
 		);
 	}
