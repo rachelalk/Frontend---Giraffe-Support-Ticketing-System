@@ -23,7 +23,8 @@ function App() {
   const [id, setId] = useState(1);
   const [roomNumber, setRoomNumber] = useState("");
   const [keyword, setKeyword] = useState("");
-  const [backendData, setBackendData] = useState([{}]); //backendData useState
+  const [backendData, setBackendData] = useState([{}]); 
+  const [deleteStatus, setDeleteStatus] = useState("");
 
   function storeQuestion(event) {
     setQuestion(event.target.value);
@@ -101,13 +102,16 @@ function App() {
 	}
 	//console.log(event.currentTarget.id);
 	// setQuestionArray([...questionArray[id]])
-	useEffect(() => { //for backend
+	
+  // GET
+  useEffect(() => {
 		fetch("/tickets")
 			.then(res => res.json())
 			.then(data => {setBackendData(data)}
 		)
 	}, [])
 
+  // POST
   useEffect(() => {
     fetch("/tickets", {
       method: "POST",
@@ -119,6 +123,13 @@ function App() {
       .then((res) => res.json())
       .then((data) => console.log(data));
   }, [ticketData]);
+
+  // DELETE
+  useEffect(() => {
+    fetch(`/tickets/${id}`, {
+      method: "DELETE",
+    }).then(() => setDeleteStatus("Delete successful"));
+  }, [id]);
 
   return (
     <div className="App">
