@@ -8,8 +8,7 @@ import CardContainer from "../CardContainer";
 import Keywords from "../Keyword";
 import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
-import moment from 'moment';
-moment().format();
+
 
 function App() {
 	const [question, setQuestion] = useState("");
@@ -19,9 +18,6 @@ function App() {
 	const [roomNumber, setRoomNumber] = useState("");
 	const [keyword, setKeyword] = useState("");
   
-  //Add time :
-  let postTime = moment().format('MM-DD-YYYY hh:mm:ss');
-
 	const [backendData, setBackendData] = useState([{}]); //backendData useState
 	const [status, setStatus] = useState("waiting");
 	const [ticketData, setTicketData] = useState({
@@ -165,7 +161,7 @@ function App() {
 				></Input>
 				<Keywords handleChange={storeKeyword}></Keywords>
 				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
-				<CardContainer array={questionArray}></CardContainer>
+				<CardContainer array={backendData}></CardContainer>
 				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
 
 				<CardContainer
