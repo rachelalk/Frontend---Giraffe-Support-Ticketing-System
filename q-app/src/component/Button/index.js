@@ -1,10 +1,11 @@
-import React from "react"
+import React from "react";
 
-function Button({handleClick,buttonText}){
-  return (
-    <button className="q-button" onClick={handleClick}>
-        {buttonText}
-    </button>);
+function Button({ handleClick, buttonText, id }) {
+	return (
+		<button id={id} className="q-button" onClick={handleClick}>
+			{buttonText}
+		</button>
+	);
 }
 
 export default Button;

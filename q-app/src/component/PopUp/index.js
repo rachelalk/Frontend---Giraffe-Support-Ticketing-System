@@ -13,8 +13,13 @@ const PopupBox = ({
 	questionHandleChange,
 	keywordsHandleChange,
 	buttonHandleClick,
+	statusHandleChange,
+	statusValue
 }) => (
-	<Popup trigger={<button className="q-button">Ask</button>} position="top left">
+	<Popup
+		trigger={<button className="q-button">Ask</button>}
+		position="top left"
+	>
 		{(close) => (
 			<div className="popUp-bg">
 				Name:
@@ -35,8 +40,14 @@ const PopupBox = ({
 					value={questionValue}
 					handleChange={questionHandleChange}
 				></Input>
+				Status:
+				<Input
+					placeholder={"Status"}
+					value={statusValue}
+					handleChange={statusHandleChange}
+				></Input>
 				<Keywords handleChange={keywordsHandleChange}></Keywords>
-				<Button handleClick={buttonHandleClick}>Submit</Button>
+				<Button handleClick={buttonHandleClick} buttonText={"Submit"}></Button>
 				<a className="close closeBtn" onClick={close}>
 					&times;
 				</a>
