@@ -11,7 +11,7 @@ import PopupBox from "../PopUp";
 
 function App() {
 	const [question, setQuestion] = useState("");
-	const [questionArray, setQuestionArray] = useState([]);
+	// const [questionArray, setQuestionArray] = useState([]);
 	const [name, setName] = useState("");
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
@@ -23,6 +23,9 @@ function App() {
 			message: "",
 			keywords: keyword.value,
 		});
+	// const [waiting, setWaiting] = useState ([{}]);
+	// const [inprogress, setInProgress] = useState([{}]);
+	// const [done, setDone] = useState([{}]);
 
 	function storeQuestion(event) {
 		setQuestion(event.target.value);
@@ -42,17 +45,17 @@ function App() {
 	}
 
 	function clickSubmit() {
-		const questionObject = {
-			id: id,
-			name: name,
-			room_number: roomNumber,
-			message: question,
-			keyword: keyword.value,
-		};
+		// const questionObject = {
+		// 	id: id,
+		// 	name: name,
+		// 	room_number: roomNumber,
+		// 	message: question,
+		// 	keyword: keyword.value,
+		// };
 
-		setQuestionArray([...questionArray, questionObject]);
-		console.log(questionArray);
-		console.log(keyword);
+		// setQuestionArray([...questionArray, questionObject]);
+		// console.log(questionArray);
+		// console.log(keyword);
 		setQuestion("");
 		setName("");
 		setRoomNumber("");
@@ -62,20 +65,22 @@ function App() {
 			roomnumber: roomNumber,
 			message: question,
 			keywords: keyword.value,
+			status: "waiting",
 		});
 		//Post request
 		console.log(backendData);
 	}
 
-	function acceptQuery(clickedId) {
-		console.log(clickedId);
-	}
+	// function acceptQuery(clickedId) {
+	// 	console.log(clickedId);
+	// }
 
 
-	function acceptQuery(clickedId) {
-		console.log(clickedId);
-	}
-	//console.log(event.currentTarget.id);
+	// function acceptQuery(event) {
+	// 	console.log(event.currentTarget.id);
+	// 	// console.log(clickedId);
+	// }
+	
 	// setQuestionArray([...questionArray[id]])
 	useEffect(() => {
 
@@ -84,9 +89,37 @@ function App() {
 			.then((res) => res.json())
 			.then((data) => {
 				setBackendData(data.payload);
-
 			});
-	}, []);
+
+	}, [ticketData]);
+
+
+// 	setWaiting(backendData.filter(filterByWaiting));
+// 	setInProgress(backendData.filter(filterByInProgress));
+// 	setDone(backendData.filter(filterByDone));
+
+// function filterByWaiting(object) {
+//   if (object.status === "Waiting") {
+//     return true
+//   } else {
+//   return false;
+// }
+
+// function filterByInProgress(object) {
+//   if (object.status === "In progress") {
+//     return true
+//   } else {
+//   return false;
+// }
+
+// function filterByDone(object) {
+//   if (object.status === "Done") {
+//     return true
+//   } else {
+//   return false;
+// }
+
+
 
 	useEffect(() => {
 		fetch("/tickets", {
@@ -105,14 +138,14 @@ function App() {
 			<header className="App-header">
 			
 				<CardContainer
-					id={backendData.id}
-					handleClick={() => {
-						acceptQuery(backendData.id);
-					}}
+					// id={backendData.ticket_id}
+					// handleClick={() => {
+					// 	acceptQuery(backendData.ticket_id);
+					// // }}
+					// handleClick={acceptQuery}
 					array={backendData}
 					time={"12:00"}
 				></CardContainer>
-				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
 				<PopupBox
 					nameValue={name}
 					nameHandleChange={storeName}

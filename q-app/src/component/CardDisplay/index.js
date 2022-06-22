@@ -6,6 +6,11 @@ import { useState } from "react";
 // 	console.log(clickedId);
 // }
 
+	function acceptQuery(event) {
+		console.log(event.currentTarget.id);
+		// console.log(clickedId);
+	}
+
 function CardDisplay(props, handleClick) {
 	const array = props.array;
 
@@ -18,8 +23,8 @@ function CardDisplay(props, handleClick) {
 			<div>
 				{array.map(function (array) {
 					return (
-						<div key={array.id}>
-							<p>{array.id}</p>
+						<div key={array.ticket_id}>
+							<p>{array.ticket_id}</p>
 							<div className="flex-container">
 								<div className="clockIcon"></div>
 								<p>{props.time}</p>
@@ -28,7 +33,7 @@ function CardDisplay(props, handleClick) {
 								<p>Question: {array.message}</p>
 								<Button
 									buttonText={"Accept"}
-									handleClick={handleClick}
+									handleClick={acceptQuery}
 									// handleClick={acceptQuery(this.id)}
 									id={array.ticket_id}
 								></Button>
