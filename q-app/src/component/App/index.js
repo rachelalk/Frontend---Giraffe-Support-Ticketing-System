@@ -10,6 +10,7 @@ import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
 
 function App() {
+
 	const [question, setQuestion] = useState("");
 	// const [questionArray, setQuestionArray] = useState([]);
 	const [name, setName] = useState("");
@@ -82,6 +83,7 @@ function App() {
 	// }
 	
 	// setQuestionArray([...questionArray[id]])
+
 	useEffect(() => {
 
 		//for backend
