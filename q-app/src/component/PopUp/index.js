@@ -36,7 +36,7 @@ const PopupBox = ({
 					handleChange={questionHandleChange}
 				></Input>
 				<Keywords handleChange={keywordsHandleChange}></Keywords>
-				<Button handleClick={buttonHandleClick}>Submit</Button>
+				<Button handleClick={buttonHandleClick} buttonText={"Submit"}></Button>
 				<a className="close closeBtn" onClick={close}>
 					&times;
 				</a>

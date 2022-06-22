@@ -61,6 +61,12 @@ function App() {
 		//Post request
 	}
 
+	function acceptQuery(clickedId) {
+		console.log(clickedId);
+	}
+	//console.log(event.currentTarget.id);
+	// setQuestionArray([...questionArray[id]])
+
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -81,7 +87,14 @@ function App() {
 				></Input>
 				<Keywords handleChange={storeKeyword}></Keywords>
 				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
-				<CardContainer array={questionArray} time={"12:00"}></CardContainer>
+				<CardContainer
+					id={questionArray.id}
+					handleClick={() => {
+						acceptQuery(questionArray.id);
+					}}
+					array={questionArray}
+					time={"12:00"}
+				></CardContainer>
 				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
 				<PopupBox
 					nameValue={name}
