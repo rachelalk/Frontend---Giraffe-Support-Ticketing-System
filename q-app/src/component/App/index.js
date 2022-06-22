@@ -9,15 +9,13 @@ import Keywords from "../Keyword";
 import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
 
-
 function App() {
 	const [question, setQuestion] = useState("");
-	// const [questionArray, setQuestionArray] = useState([]);
 	const [name, setName] = useState("");
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
 	const [keyword, setKeyword] = useState("");
-  
+
 	const [backendData, setBackendData] = useState([{}]); //backendData useState
 	const [status, setStatus] = useState("waiting");
 	const [ticketData, setTicketData] = useState({
@@ -28,9 +26,6 @@ function App() {
 		status: status,
 	});
 	const [deleteStatus, setDeleteStatus] = useState("");
-
-	// const [inprogress, setInProgress] = useState([{}]);
-	// const [done, setDone] = useState([{}]);
 
 	function storeQuestion(event) {
 		setQuestion(event.target.value);
@@ -55,17 +50,6 @@ function App() {
 
 	function clickSubmit() {
 
-		// const questionObject = {
-		// 	id: id,
-		// 	name: name,
-		// 	room_number: roomNumber,
-		// 	message: question,
-		// 	keyword: keyword.value,
-		// };
-
-		// setQuestionArray([...questionArray, questionObject]);
-		// console.log(questionArray);
-		// console.log(keyword);
 		setQuestion("");
 		setName("");
 		setRoomNumber("");
@@ -77,20 +61,8 @@ function App() {
 			keywords: keyword.value,
 			status: status,
 		});
-		//Post request
 		console.log(backendData);
 	}
-
-	// function acceptQuery(clickedId) {
-	// 	console.log(clickedId);
-	// }
-
-	// function acceptQuery(event) {
-	// 	console.log(event.currentTarget.id);
-	// 	// console.log(clickedId);
-	// }
-
-	// setQuestionArray([...questionArray[id]])
 
 	useEffect(() => {
 		fetch("/tickets")
@@ -99,28 +71,6 @@ function App() {
 				setBackendData(data.payload);
 			});
 	}, [ticketData]);
-
-	// const [waiting, setWaiting] = useState ([{}]);
-	// setWaiting(backendData.filter(object => object.status === "Waiting"));
-
-	// 	setInProgress(backendData.filter(filterByInProgress));
-	// 	setDone(backendData.filter(filterByDone));
-
-	// function filterByWaiting(object) {
-
-	// function filterByInProgress(object) {
-	//   if (object.status === "In progress") {
-	//     return true
-	//   } else {
-	//   return false;
-	// }
-
-	// function filterByDone(object) {
-	//   if (object.status === "Done") {
-	//     return true
-	//   } else {
-	//   return false;
-	// }
 
 	useEffect(() => {
 		fetch("/tickets", {
@@ -143,37 +93,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-
-				{/* <Input
-					placeholder={"Name"}
-					value={name}
-					handleChange={storeName}
-				></Input>
-				<Input
-					placeholder={"Room number"}
-					value={roomNumber}
-					handleChange={storeRoomNumber}
-				></Input>
-				<Input
-					placeholder={"Enter question..."}
-					value={question}
-					handleChange={storeQuestion}
-				></Input>
-				<Keywords handleChange={storeKeyword}></Keywords>
-				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
 				<CardContainer array={backendData}></CardContainer>
-				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
-
-				<CardContainer
-					// id={backendData.ticket_id}
-					// handleClick={() => {
-					// 	acceptQuery(backendData.ticket_id);
-					// // }}
-					// handleClick={acceptQuery}
-					array={backendData}
-					time={"12:00"}
-				></CardContainer>
-
 				<PopupBox
 					nameValue={name}
 					nameHandleChange={storeName}
@@ -193,44 +113,3 @@ function App() {
 
 export default App;
 
-// {
-// 	/* <Input
-// 				placeholder={"Name"}
-// 				value={name}
-// 				handleChange={storeName}
-// 			></Input>
-// 			<Input
-// 				placeholder={"Room number"}
-// 				value={roomNumber}
-// 				handleChange={storeRoomNumber}
-// 			></Input>
-// 			<Input
-// 				placeholder={"Enter question..."}
-// 				value={question}
-// 				handleChange={storeQuestion}
-// 			></Input>
-// 			<Keywords handleChange={storeKeyword}></Keywords>
-// 			<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */
-// }
-
-//console.log(event.currentTarget.id);
-// setQuestionArray([...questionArray[id]])
-
-// GET
-// useEffect(() => {
-// 	setLoading(true);
-// 	fetch("/tickets")
-// 		.then((res) => res.json())
-// 		.then((data) => {
-// 			setBackendData(data);
-// 			setLoading(false);
-// 		});
-// }, []);
-
-// POST
-// const ticketData = {
-// name: name,
-// roomnumber: roomNumber,
-// message: question,
-// keywords: keyword.value,
-// };
