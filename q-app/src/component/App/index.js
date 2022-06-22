@@ -17,6 +17,7 @@ function App() {
 	const [id, setId] = useState(1);
 	const [roomNumber, setRoomNumber] = useState("");
 	const [keyword, setKeyword] = useState("");
+  
 	const [backendData, setBackendData] = useState([{}]); //backendData useState
 	const [status, setStatus] = useState("waiting");
 	const [ticketData, setTicketData] = useState({
@@ -53,6 +54,7 @@ function App() {
 	}
 
 	function clickSubmit() {
+
 		// const questionObject = {
 		// 	id: id,
 		// 	name: name,
@@ -142,6 +144,26 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 
+				{/* <Input
+					placeholder={"Name"}
+					value={name}
+					handleChange={storeName}
+				></Input>
+				<Input
+					placeholder={"Room number"}
+					value={roomNumber}
+					handleChange={storeRoomNumber}
+				></Input>
+				<Input
+					placeholder={"Enter question..."}
+					value={question}
+					handleChange={storeQuestion}
+				></Input>
+				<Keywords handleChange={storeKeyword}></Keywords>
+				<Button buttonText={"Submit"} handleClick={clickSubmit}></Button> */}
+				<CardContainer array={backendData}></CardContainer>
+				{/* <Button buttonText={"Ask"} handleClick={PopupExample}></Button> */}
+
 				<CardContainer
 					// id={backendData.ticket_id}
 					// handleClick={() => {
@@ -151,6 +173,7 @@ function App() {
 					array={backendData}
 					time={"12:00"}
 				></CardContainer>
+
 				<PopupBox
 					nameValue={name}
 					nameHandleChange={storeName}
