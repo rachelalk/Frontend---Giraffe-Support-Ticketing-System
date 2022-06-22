@@ -23,7 +23,8 @@ function App() {
 			roomnumber: "",
 			message: "",
 			keywords: keyword.value,
-		});
+  });
+  const [deleteStatus, setDeleteStatus] = useState("");
 	// const [waiting, setWaiting] = useState ([{}]);
 	// const [inprogress, setInProgress] = useState([{}]);
 	// const [done, setDone] = useState([{}]);
@@ -85,8 +86,6 @@ function App() {
 	// setQuestionArray([...questionArray[id]])
 
 	useEffect(() => {
-
-		//for backend
 		fetch("/tickets")
 			.then((res) => res.json())
 			.then((data) => {
@@ -133,7 +132,14 @@ function App() {
 		})
 			.then((res) => res.json())
 			.then((data) => console.log(data));
-	}, [ticketData]);
+  }, [ticketData]);
+  
+  useEffect(() => {
+    fetch(`/tickets/${id}`, {
+      method: "DELETE",
+    }).then(() => setDeleteStatus("Delete successful"));
+  }, [id]);
+
 
 	return (
 		<div className="App">
