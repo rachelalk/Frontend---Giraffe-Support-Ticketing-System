@@ -7,7 +7,7 @@ import InProgressCard from "../InProgressCard";
 function CardContainer({ array, time, handleClick, onUpdateInProgTicket,
           onUpdateDoneTicket }) {
 	return (
-    <div>
+    <div className="setWidth">
       <InProgressCard
         array={array}
         handleClick={handleClick}

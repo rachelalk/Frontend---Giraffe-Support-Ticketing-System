@@ -9,13 +9,13 @@ function DoneCard(props) {
 
 	if (array) {
 		return (
-			<div className="big-card">
+			<div>
 				{array
 					.filter((object) => object.status === "done")
 					.map((filteredArray) => (
-						<div key={filteredArray.ticket_id}>
-							<p>{filteredArray.ticket_id}</p>
-							<div className="flex-container">
+						<div className="w500" key={filteredArray.ticket_id}>
+							<p className="small-grey">{filteredArray.ticket_id}</p>
+							<div className="flex-container done-bg">
 								<p>{filteredArray.name}</p>
 								<p>Room: {filteredArray.roomnumber}</p>
 								<p>Done!</p>

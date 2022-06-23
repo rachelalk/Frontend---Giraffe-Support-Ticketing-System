@@ -28,12 +28,11 @@ function CardDisplay(props) {
 
 	if (array) { //(array[array.length - 1])
     return (
-      <div className="big-card">
-      <div className="pd-top"></div>
+      <div>
         {array
           .filter((object) => object.status === "waiting")
           .map((filteredArray) => (
-            <div key={filteredArray.ticket_id}>
+            <div className="w500" key={filteredArray.ticket_id}>
               <p className="small-grey">{filteredArray.ticket_id}</p>
               <div className="flex-container">
                 <Timer />

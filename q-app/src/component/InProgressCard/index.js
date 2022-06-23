@@ -25,13 +25,13 @@ function InProgressCard(props) {
 
 	if (array) {
 		return (
-      <div>
+      <div className="w500">
         {array
           .filter((object) => object.status === "in progress")
           .map((filteredArray) => (
             <div key={filteredArray.ticket_id}>
-              <p>{filteredArray.ticket_id}</p>
-              <div className="flex-container">
+              <p className="small-grey">{filteredArray.ticket_id}</p>
+              <div className="flex-container progress-bg">
                 <p>{filteredArray.name}</p>
                 <p>Room: {filteredArray.roomnumber}</p>
                 <p>In progress...</p>
@@ -39,7 +39,7 @@ function InProgressCard(props) {
                   buttonText={"Complete"}
                   handleClick={props.onUpdateDoneTicket}
                   id={filteredArray.ticket_id}></Button>
-                <div>
+                <div className="keyword-style">
                   <p>{filteredArray.keywords}</p>
                 </div>
               </div>

@@ -22,24 +22,31 @@ const PopupBox = ({
 	>
 		{(close) => (
 			<div className="popUp-bg">
+			 <div>
 				Name:
 				<Input
 					placeholder={"Name"}
 					value={nameValue}
 					handleChange={nameHandleChange}
 				></Input>
+				</div>
+				<div>
 				Room Number:
 				<Input
 					placeholder={"Room number"}
 					value={roomValue}
 					handleChange={roomHandleChange}
 				></Input>
+				</div>
+				<div className="w80">
 				Question:
 				<Input
 					placeholder={"Enter question..."}
 					value={questionValue}
 					handleChange={questionHandleChange}
+					style={{width:"500px"}}
 				></Input>
+				</div>
 				{/* Status:
 				<Input
 					placeholder={"Status"}
