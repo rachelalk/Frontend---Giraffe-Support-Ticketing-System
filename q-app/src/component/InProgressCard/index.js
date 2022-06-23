@@ -4,12 +4,21 @@ import { useState } from "react";
 
 function completeQuery(event) {
 	console.log(event.currentTarget.id);
-	// console.log(clickedId);
+	const id = event.currentTarget.id
+	fetch(`/tickets/${id}`, {
+		method: "PATCH",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({status: "done"})
+   })
+       .then((res) => res.json)
+       .then((data) => console.log(data))
 }
 
 function InProgressCard(props) {
 	const array = props.array;
-
+	console.log(array)
 	if (array === undefined) {
 		return <div>Loading...</div>;
 	}
