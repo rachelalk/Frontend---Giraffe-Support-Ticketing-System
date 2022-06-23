@@ -28,7 +28,7 @@ function CardDisplay(props) {
 
 	if (array) { //(array[array.length - 1])
     return (
-      <div>
+      <div className="big-card">
       <div className="pd-top"></div>
         {array
           .filter((object) => object.status === "waiting")

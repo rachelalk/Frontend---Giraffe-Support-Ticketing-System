@@ -9,7 +9,7 @@ function DoneCard(props) {
 
 	if (array) {
 		return (
-			<div>
+			<div className="big-card">
 				{array
 					.filter((object) => object.status === "done")
 					.map((filteredArray) => (
@@ -19,7 +19,7 @@ function DoneCard(props) {
 								<p>{filteredArray.name}</p>
 								<p>Room: {filteredArray.roomnumber}</p>
 								<p>Done!</p>
-								<div>
+								<div className="keyword-style">
 									<p>{filteredArray.keywords}</p>
 								</div>
 							</div>
