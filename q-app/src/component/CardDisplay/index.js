@@ -18,6 +18,7 @@ function acceptQuery(event) {
     .then((data) => console.log(data))
 }
 
+
 function CardDisplay(props, handleClick) {
 	const array = props.array;
 
@@ -28,13 +29,13 @@ function CardDisplay(props, handleClick) {
 	if (array) { //(array[array.length - 1])
     return (
       <div>
+      <div className="pd-top"></div>
         {array
           .filter((object) => object.status === "waiting")
           .map((filteredArray) => (
             <div key={filteredArray.ticket_id}>
-              <p>{filteredArray.ticket_id}</p>
+              <p className="small-grey">{filteredArray.ticket_id}</p>
               <div className="flex-container">
-                <div className="clockIcon"></div>
                 <Timer />
                 <p>{filteredArray.name}</p>
                 <p>Room: {filteredArray.roomnumber}</p>
@@ -44,7 +45,7 @@ function CardDisplay(props, handleClick) {
                   handleClick={acceptQuery}
 						  id={filteredArray.ticket_id}
 					  handleClick={handleClick}></Button>
-                <div>
+                <div className="keyword-style">
                   <p>{filteredArray.keywords}</p>
                 </div>
               </div>
@@ -53,6 +54,7 @@ function CardDisplay(props, handleClick) {
       </div>
     );
   }
+
 }
 
 export default CardDisplay;

@@ -18,6 +18,7 @@ function App() {
   const [backendData, setBackendData] = useState([]); //backendData useState
   const [status, setStatus] = useState("waiting");
 
+
   // const [deleteStatus, setDeleteStatus] = useState("");
 
   function storeQuestion(event) {
@@ -60,6 +61,7 @@ function App() {
       .then((res) => res.json())
 		.then((data) => setBackendData([...backendData, data.payload[0]],
 		 console.log(data.payload)));
+
 	}
 
 	console.log(backendData);
@@ -85,10 +87,13 @@ function App() {
   //      .then(/*something*/)
   // }, [/*something*/] )
 
+
   return (
     <div className="App">
       <header className="App-header">
+    			<div className="q-logo"></div>
         <CardContainer array={backendData}></CardContainer>
+
 
         <PopupBox
           nameValue={name}
