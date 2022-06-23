@@ -28,7 +28,7 @@ const Timer = (props:24) => {
         <div>
         { minutes === 0 && seconds === 0
             ? null
-            : <h1> {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+            : <h3> {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h3> 
         }
         </div>
     )
