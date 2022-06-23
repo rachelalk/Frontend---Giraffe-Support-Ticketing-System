@@ -53,11 +53,14 @@
   background-size: contain;
   background-position: 0px;
   background-repeat: no-repeat;
-  height: 30px;
+  height: 20px;
   margin: auto;
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
+.clockIcon h4{
+  font-size: 14px;
+}
 .q-bg{
   background-color: var(--second-color);
 }
@@ -97,7 +100,7 @@
 
 .flex-container p {
   margin: 0px 10px;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .keyword-style{
@@ -108,13 +111,16 @@
   position: relative;
   margin: -10px;
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;}
+
+  .keyword-style p{  font-size: 12px;}
 
 .q-input{
   border: 2px solid var(--card-bg-color);
   padding: 10px 20px;
   margin: 10px;
+  width: inherit;
 }
 
 .q-input:focus-visible{
@@ -212,14 +218,23 @@
 
 .done-bg{
   background-color: var(--done-color);
-
 }
 
 .progress-bg{
   background-color: var(--progress-color);
 }
 
+.done-bg p{
+  color: #fff;
+}
+
+.progress-bg p{
+  color: #fff;
+}
+
 .w70{ width: 70%;}
+
+
 
 @media only screen and (max-width: 600px) {
   .w500{

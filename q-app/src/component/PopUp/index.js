@@ -44,7 +44,6 @@ const PopupBox = ({
 					placeholder={"Enter question..."}
 					value={questionValue}
 					handleChange={questionHandleChange}
-					style={{width:"500px"}}
 				></Input>
 				</div>
 				{/* Status:
@@ -54,7 +53,9 @@ const PopupBox = ({
 					handleChange={statusHandleChange}
 				></Input> */}
 				<Keywords handleChange={keywordsHandleChange}></Keywords>
+				<div className="center-row">
 				<Button handleClick={buttonHandleClick} buttonText={"Submit"}></Button>
+				</div>
 				<a className="close closeBtn" onClick={close}>
 					&times;
 				</a>
