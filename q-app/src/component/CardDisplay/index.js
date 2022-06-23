@@ -38,7 +38,9 @@ function CardDisplay(props) {
                 <Timer />
                 <p>{filteredArray.name}</p>
                 <p>Room: {filteredArray.roomnumber}</p>
+                <div className="w100">
                 <p>Question: {filteredArray.message}</p>
+                </div>
                 <Button
                   buttonText={"Accept"}
                   handleClick={props.onUpdateInProgTicket}
