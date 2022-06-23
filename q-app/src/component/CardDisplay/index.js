@@ -2,23 +2,21 @@ import React from "react";
 import Timer from "../Timer";
 import Button from "../Button/";
 
-// function acceptQuery(clickedId) {
-// 	console.log(clickedId);
-// }
+
 
 function acceptQuery(event) {
 	console.log(event.currentTarget.id);
-	// console.log(clickedId);
+
 }
 
 function CardDisplay(props) {
 	const array = props.array;
 
-	if (array === undefined) {
+	if (array[array.length-1] === undefined) {
 		return <div>Loading...</div>;
 	}
 
-	if (array) {
+	if (array[array.length - 1]) {
 		return (
 			<div>
 				{array
@@ -28,7 +26,7 @@ function CardDisplay(props) {
 							<p>{filteredArray.ticket_id}</p>
 							<div className="flex-container">
 								<div className="clockIcon"></div>
-									<Timer/>
+								<Timer />
 								<p>{filteredArray.name}</p>
 								<p>Room: {filteredArray.roomnumber}</p>
 								<p>Question: {filteredArray.message}</p>

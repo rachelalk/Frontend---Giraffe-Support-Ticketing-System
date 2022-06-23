@@ -40,12 +40,12 @@ const PopupBox = ({
 					value={questionValue}
 					handleChange={questionHandleChange}
 				></Input>
-				Status:
+				{/* Status:
 				<Input
 					placeholder={"Status"}
 					value={statusValue}
 					handleChange={statusHandleChange}
-				></Input>
+				></Input> */}
 				<Keywords handleChange={keywordsHandleChange}></Keywords>
 				<Button handleClick={buttonHandleClick} buttonText={"Submit"}></Button>
 				<a className="close closeBtn" onClick={close}>
