@@ -9,7 +9,7 @@ function completeQuery(event) {
 
 function InProgressCard(props) {
 	const array = props.array;
-
+	console.log(array)
 	if (array === undefined) {
 		return <div>Loading...</div>;
 	}
