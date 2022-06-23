@@ -18,7 +18,7 @@ function acceptQuery(event) {
     .then((data) => console.log(data))
 }
 
-function CardDisplay(props) {
+function CardDisplay(props, handleClick) {
 	const array = props.array;
 
 	if (array === undefined) { //(array[array.length-1] === undefined)
@@ -42,7 +42,8 @@ function CardDisplay(props) {
                 <Button
                   buttonText={"Accept"}
                   handleClick={acceptQuery}
-                  id={filteredArray.ticket_id}></Button>
+						  id={filteredArray.ticket_id}
+					  handleClick={handleClick}></Button>
                 <div>
                   <p>{filteredArray.keywords}</p>
                 </div>
