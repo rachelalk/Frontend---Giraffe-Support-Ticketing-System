@@ -5,6 +5,14 @@ import makeAnimated from "react-select/animated";
 const options = [
 	{ value: "Javascript", label: "Javascript" },
 	{ value: "React", label: "React" },
+	{ value: "Node", label: "Node" },
+	{ value: "Git Branching", label: "Git Branching" },
+	{ value: "Promises", label: "Promises" },
+	{ value: "useEffect", label: "useEffect" },
+	{ value: "Mapping", label: "Mapping" },
+	{ value: "CRUD", label: "CRUD" },
+	{ value: "API", label: "API" },
+	{ value: "Database", label: "Database" },
 	{ value: "Error", label: "Error" },
 ];
 
