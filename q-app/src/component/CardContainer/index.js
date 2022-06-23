@@ -1,5 +1,6 @@
 import React from "react";
 import CardDisplay from "../CardDisplay";
+import DoneCard from "../DoneCard";
 import InProgressCard from "../InProgressCard";
 
 function CardContainer({ array, time, handleClick }) {
@@ -11,6 +12,7 @@ function CardContainer({ array, time, handleClick }) {
 				array={array}
 				handleClick={handleClick}
 			></CardDisplay>
+			<DoneCard array={array}></DoneCard>
 		</div>
 	);
 }
