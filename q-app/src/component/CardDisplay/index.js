@@ -6,7 +6,16 @@ import Button from "../Button/";
 
 function acceptQuery(event) {
 	console.log(event.currentTarget.id);
-
+	const id = event.currentTarget.id;
+	fetch(`/tickets/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ status: "in progress" }),
+  })
+    .then((res) => res.json)
+    .then((data) => console.log(data))
 }
 
 function CardDisplay(props) {
