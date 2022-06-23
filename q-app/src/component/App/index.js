@@ -59,10 +59,8 @@ function App() {
 			body: JSON.stringify(questionData),
 		})
 			.then((res) => res.json())
-			.then((data) => setBackendData([...backendData, data[0]]));
+			.then((data) => setBackendData([...backendData, data.payload[0]]));
 					
-
-
 		console.log(backendData);
 	}
 
