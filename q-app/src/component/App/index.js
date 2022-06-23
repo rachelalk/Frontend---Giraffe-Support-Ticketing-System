@@ -16,7 +16,8 @@ function App() {
   const [roomNumber, setRoomNumber] = useState("");
   const [keyword, setKeyword] = useState("");
   const [backendData, setBackendData] = useState([]); //backendData useState
-  const [status, setStatus] = useState("waiting");
+	const [status, setStatus] = useState("waiting");
+  const [stateCount, setStateCount] = useState(0)
 
 
   // const [deleteStatus, setDeleteStatus] = useState("");
@@ -66,13 +67,48 @@ function App() {
 
 	console.log(backendData);
 	
+
   useEffect(() => {
     fetch("/tickets")
       .then((res) => res.json())
       .then((data) => {
         setBackendData(data.payload);
       });
-  }, []);
+  }, [stateCount]);
+	
+	
+	function onUpdateInProgTicket(event) {
+    console.log(event.currentTarget.id);
+    const id = event.currentTarget.id;
+    fetch(`/tickets/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: "in progress" }),
+    })
+      .then((res) => res.json)
+		.then((data) => console.log(data))
+		.then(() => {setStateCount(c => c+1)}) //if state is dependent on setstate use 'c' function
+		
+	}
+	
+	function onUpdateDoneTicket(event) {
+    console.log(event.currentTarget.id);
+    const id = event.currentTarget.id;
+    fetch(`/tickets/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ status: "done" }),
+    })
+      .then((res) => res.json)
+      .then((data) => console.log(data))
+      .then(() => {
+        setStateCount((c) => c + 1);
+      }); //if state is dependent on setstate use 'c' function
+  }
 
   // PATCH
   // useEffect(() => {
@@ -91,9 +127,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-    			<div className="q-logo"></div>
-        <CardContainer array={backendData}></CardContainer>
-
+        <div className="q-logo"></div>
+        <CardContainer
+          array={backendData}
+          onUpdateInProgTicket={onUpdateInProgTicket}
+          onUpdateDoneTicket={onUpdateDoneTicket}></CardContainer>
 
         <PopupBox
           nameValue={name}
