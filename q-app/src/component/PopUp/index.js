@@ -17,7 +17,7 @@ const PopupBox = ({
 	statusValue
 }) => (
 	<Popup
-		trigger={<button className="q-button">Ask</button>}
+		trigger={<button className="q-button ask-position">Ask</button>}
 		position="top left"
 	>
 		{(close) => (

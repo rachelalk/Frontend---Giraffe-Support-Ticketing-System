@@ -121,6 +121,7 @@
 
 
 .popUp-bg {
+  top: 12%;
   position: fixed;
   left: 0;
   background-color: #fff;

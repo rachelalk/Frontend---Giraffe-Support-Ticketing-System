@@ -76,6 +76,8 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 
+			<div className="q-logo"></div>
+
 				<CardContainer array={backendData}></CardContainer>
 
 				<PopupBox
