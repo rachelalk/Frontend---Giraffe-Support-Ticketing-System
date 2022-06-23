@@ -190,3 +190,8 @@
 .pd-top{
   padding-top: 50px;
 }
+
+.big-card{
+  display: flex;
+  flex-direction: column;
+}

@@ -28,7 +28,7 @@ function CardDisplay(props, handleClick) {
 
 	if (array) { //(array[array.length - 1])
     return (
-      <div>
+      <div className="big-card">
       <div className="pd-top"></div>
         {array
           .filter((object) => object.status === "waiting")
@@ -44,7 +44,7 @@ function CardDisplay(props, handleClick) {
                   buttonText={"Accept"}
                   handleClick={acceptQuery}
 						  id={filteredArray.ticket_id}
-					  handleClick={handleClick}></Button>
+				 ></Button>
                 <div className="keyword-style">
                   <p>{filteredArray.keywords}</p>
                 </div>
