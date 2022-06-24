@@ -10,7 +10,6 @@ import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
 function App() {
   const [question, setQuestion] = useState("");
-
   const [name, setName] = useState("");
   const [id, setId] = useState(1);
   const [roomNumber, setRoomNumber] = useState("");
