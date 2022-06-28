@@ -35,3 +35,5 @@ const Timer = (props:24) => {
 }
 
 export default Timer;
+
+
