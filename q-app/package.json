@@ -40,10 +40,7 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "cypress": "^10.3.0"
-=======
+    "cypress": "^10.3.0",
     "@testing-library/react": "^13.3.0"
->>>>>>> 7062382da27382c62061f2c7c1d530814d177c18
   }
 }
