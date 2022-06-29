@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "react-select";
 
+// Renders keyword dropdown component within PopUp
 const options = [
 	{ value: "Javascript", label: "Javascript" },
 	{ value: "React", label: "React" },

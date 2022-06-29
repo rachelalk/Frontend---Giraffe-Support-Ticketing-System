@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
+// Sets counter (counts up) for each ticket after submission
 const Timer = (props) => {
     const {initialMinute = 0,initialSeconds = 0} = props;
     const [ minutes, setMinutes ] = useState(initialMinute);

@@ -7,42 +7,45 @@ import PopupBox from "../PopUp";
 function App() {
   const [question, setQuestion] = useState("");
   const [name, setName] = useState("");
-  const [id, setId] = useState(1);
   const [roomNumber, setRoomNumber] = useState("");
   const [keyword, setKeyword] = useState("");
-  const [backendData, setBackendData] = useState([]); 
-	const [status, setStatus] = useState("waiting");
-  const [stateCount, setStateCount] = useState(0)
+  const [backendData, setBackendData] = useState([]);
+  const [stateCount, setStateCount] = useState(0);
 
+  // To track question typed by user and store in question state
   function storeQuestion(event) {
     setQuestion(event.target.value);
     console.log(event.target.value);
   }
+  // To track name typed by user and store in name state
   function storeName(event) {
     setName(event.target.value);
   }
+  // To track room-number typed by user and store in roomNumber state
   function storeRoomNumber(event) {
     setRoomNumber(event.target.value);
   }
-  function storeStatus(event) {
-    setStatus(event.target.value);
-  }
+  // To track keyword selected by user and store in keyword state
   function storeKeyword(event) {
     setKeyword(event);
   }
+
+  // Called when user click submit button
   function clickSubmit() {
+    // Prepares request body
     const questionData = {
       name: name,
       roomnumber: roomNumber,
       message: question,
       keywords: keyword.value,
-      status: status,
+      status: "waiting",
     };
+    // Resets input boxes after submission
     setQuestion("");
     setName("");
     setRoomNumber("");
-    setId(id + 1);
 
+    // Submit user data to database
     fetch("/tickets", {
       method: "POST",
       headers: {
@@ -51,14 +54,10 @@ function App() {
       body: JSON.stringify(questionData),
     })
       .then((res) => res.json())
-		.then((data) => setBackendData([...backendData, data.payload[0]],
-		 console.log(data.payload)));
+      .then((data) => setBackendData([...backendData, data.payload[0]]));
+  }
 
-	}
-
-	console.log(backendData);
-	
-
+  // GET request that rerenders page after ticket status is updated
   useEffect(() => {
     fetch("/tickets")
       .then((res) => res.json())
@@ -66,9 +65,9 @@ function App() {
         setBackendData(data.payload);
       });
   }, [stateCount]);
-	
-	
-	function onUpdateInProgTicket(event) {
+
+  // PATCH request to update 'waiting' ticket to 'in progress'
+  function onUpdateInProgTicket(event) {
     console.log(event.currentTarget.id);
     const id = event.currentTarget.id;
     fetch(`/tickets/${id}`, {
@@ -79,11 +78,13 @@ function App() {
       body: JSON.stringify({ status: "in progress" }),
     })
       .then((res) => res.json)
-		  .then((data) => console.log(data))
-		  .then(() => {setStateCount(c => c+1)}) //if state is dependent on setstate use 'c' function
-	}
-	
-	function onUpdateDoneTicket(event) {
+      .then((data) => console.log(data))
+      .then(() => {
+        setStateCount((c) => c + 1);
+      }); //if state is dependent on setstate use 'c' function
+  }
+  // PATCH request to update 'in progress' ticket to 'done'
+  function onUpdateDoneTicket(event) {
     console.log(event.currentTarget.id);
     const id = event.currentTarget.id;
     fetch(`/tickets/${id}`, {
@@ -107,8 +108,7 @@ function App() {
         <CardContainer
           array={backendData}
           onUpdateInProgTicket={onUpdateInProgTicket}
-          onUpdateDoneTicket={onUpdateDoneTicket}
-        ></CardContainer>
+          onUpdateDoneTicket={onUpdateDoneTicket}></CardContainer>
 
         <PopupBox
           nameValue={name}
@@ -118,12 +118,10 @@ function App() {
           questionValue={question}
           questionHandleChange={storeQuestion}
           keywordsHandleChange={storeKeyword}
-          buttonHandleClick={clickSubmit}
-          statusValue={status}
-          statusHandleChange={storeStatus}
-        ></PopupBox>
+          buttonHandleClick={clickSubmit}></PopupBox>
       </header>
     </div>
   );
 }
+
 export default App;

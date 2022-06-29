@@ -1,8 +1,9 @@
 import React from "react";
 import Timer from "../Timer";
-import Button from "../Button/";
+import Button from "../Button";
 
-function CardDisplay(props) {
+ // Renders card display for 'waiting' tickets
+function WaitingCard(props) {
 	const array = props.array;
 
 	if (array === undefined) { 
@@ -38,7 +39,6 @@ function CardDisplay(props) {
       </div>
     );
   }
-
 }
 
-export default CardDisplay;
+export default WaitingCard;

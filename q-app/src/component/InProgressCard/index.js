@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button/";
 
+ // Renders card display for 'in-progress' tickets
 function InProgressCard(props) {
 	const array = props.array;
 	console.log(array)
