@@ -1,54 +1,52 @@
 import React from "react";
-import { useEffect, useState } from "react"; //imported useEffect
+import { useEffect, useState } from "react";
 import "./App.css";
-import Button from "../Button";
-import Input from "../Input";
-import CardDisplay from "../CardDisplay";
 import CardContainer from "../CardContainer";
-import Keywords from "../Keyword";
-import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
-function App() {
-  const [question, setQuestion] = useState("");
 
-  const [name, setName] = useState("");
+function App() {
+  // const [question, setQuestion] = useState("");
+  // const [name, setName] = useState("");
   const [id, setId] = useState(1);
-  const [roomNumber, setRoomNumber] = useState("");
+  // const [roomNumber, setRoomNumber] = useState("");
   const [keyword, setKeyword] = useState("");
-  const [backendData, setBackendData] = useState([]); //backendData useState
-	const [status, setStatus] = useState("waiting");
+  const [backendData, setBackendData] = useState([]);
+	// const [status, setStatus] = useState("waiting");
   const [stateCount, setStateCount] = useState(0)
 
+  const [questionData, setQuestionData] = useState({
+    name: "",
+    roomnumber: "",
+    message: "",
+    keywords: keyword, 
+    status: "waiting",
+  });
 
-  // const [deleteStatus, setDeleteStatus] = useState("");
+   function storeKeyword(event) {
+     setKeyword(event.value);
+    //  setKeyword(keyword.value);
+     console.log(keyword);
+   }
 
-  function storeQuestion(event) {
-    setQuestion(event.target.value);
-    console.log(event.target.value);
-  }
-  function storeName(event) {
-    setName(event.target.value);
-  }
-  function storeRoomNumber(event) {
-    setRoomNumber(event.target.value);
-  }
-  function storeStatus(event) {
-    setStatus(event.target.value);
-  }
-  function storeKeyword(event) {
-    setKeyword(event);
-  }
+  const handleChangeFor = (propertyName) => (event) => {
+    setQuestionData((questionData) => ({
+      ...questionData,
+      [propertyName]: event.target.value,
+    }));
+    console.log(questionData);
+  };
+
   function clickSubmit() {
-    const questionData = {
-      name: name,
-      roomnumber: roomNumber,
-      message: question,
-      keywords: keyword.value,
-      status: status,
-    };
-    setQuestion("");
-    setName("");
-    setRoomNumber("");
+  //   const questionData = {
+  //     name: name,
+  //     roomnumber: roomNumber,
+  //     message: question,
+  //     keywords: keyword.value,
+  //     status: status,
+  //   };
+    // setQuestion("");
+    // setName("");
+    // setRoomNumber("");
     setId(id + 1);
 
     // POST
@@ -60,10 +58,30 @@ function App() {
       body: JSON.stringify(questionData),
     })
       .then((res) => res.json())
-		.then((data) => setBackendData([...backendData, data.payload[0]],
-		 console.log(data.payload)));
-
-	}
+      .then((data) =>
+        setBackendData(
+          [...backendData, data.payload[0]],
+          console.log(data.payload)
+        )
+      );
+  }
+    // function storeQuestion(event) {
+    //   setQuestion(event.target.value);
+    //   console.log(event.target.value);
+    // }
+    // function storeName(event) {
+    //   setName(event.target.value);
+    // }
+    // function storeRoomNumber(event) {
+    //   setRoomNumber(event.target.value);
+    // }
+    // function storeStatus(event) {
+    //   setStatus(event.target.value);
+    // }
+    // function storeKeyword(event) {
+    //   setKeyword(event);
+    //   console.log(keyword)
+    // }
 
 	console.log(backendData);
 	
@@ -134,16 +152,17 @@ function App() {
           onUpdateDoneTicket={onUpdateDoneTicket}></CardContainer>
 
         <PopupBox
-          nameValue={name}
-          nameHandleChange={storeName}
-          roomValue={roomNumber}
-          roomHandleChange={storeRoomNumber}
-          questionValue={question}
-          questionHandleChange={storeQuestion}
+          // nameValue={name}
+          nameHandleChange={handleChangeFor("name")}
+          // roomValue={roomNumber}
+          roomHandleChange={handleChangeFor("roomnumber")}
+          // questionValue={question}
+          questionHandleChange={handleChangeFor("message")}
           keywordsHandleChange={storeKeyword}
           buttonHandleClick={clickSubmit}
-          statusValue={status}
-          statusHandleChange={storeStatus}></PopupBox>
+          // statusValue={status}
+        // statusHandleChange={storeStatus}
+        ></PopupBox>
       </header>
     </div>
   );
