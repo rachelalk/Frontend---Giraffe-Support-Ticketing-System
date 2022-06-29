@@ -18,7 +18,12 @@ const PopupBox = ({
   <Popup
     trigger={<button className="q-button ask-position">Ask</button>}
     position="top left">
-    {(close) => (
+    {(close) => {
+     function closeAndComplete() {
+       close()
+       buttonHandleClick()
+     }
+      return (
       <div className="popUp-bg">
         <div>
           Name:
@@ -44,7 +49,7 @@ const PopupBox = ({
         <Keywords handleChange={keywordsHandleChange}></Keywords>
         <div className="center-row">
           <Button
-            handleClick={buttonHandleClick}
+            handleClick={closeAndComplete}
             buttonText={"Submit"}
 			>
           </Button>
@@ -53,7 +58,8 @@ const PopupBox = ({
           &times;
         </a>
       </div>
-    )}
+      )}
+    }
   </Popup>
 );
 

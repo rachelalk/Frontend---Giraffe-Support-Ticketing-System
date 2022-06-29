@@ -80,7 +80,7 @@ function App() {
       .then((res) => res.json)
       .then((data) => console.log(data))
       .then(() => {
-        setStateCount((c) => c + 1);
+        setStateCount((count) => count + 1);
       }); //if state is dependent on setstate use 'c' function
   }
   // PATCH request to update 'in progress' ticket to 'done'
