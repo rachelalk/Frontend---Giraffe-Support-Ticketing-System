@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-const Timer = (props:24) => {
+const Timer = (props) => {
     const {initialMinute = 0,initialSeconds = 0} = props;
     const [ minutes, setMinutes ] = useState(initialMinute);
     const [seconds, setSeconds ] =  useState(initialSeconds);

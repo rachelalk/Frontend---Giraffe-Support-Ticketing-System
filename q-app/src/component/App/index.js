@@ -1,26 +1,18 @@
 import React from "react";
-import { useEffect, useState } from "react"; //imported useEffect
+import { useEffect, useState } from "react";
 import "./App.css";
-import Button from "../Button";
-import Input from "../Input";
-import CardDisplay from "../CardDisplay";
 import CardContainer from "../CardContainer";
-import Keywords from "../Keyword";
-import Popup from "reactjs-popup";
 import PopupBox from "../PopUp";
+
 function App() {
   const [question, setQuestion] = useState("");
-
   const [name, setName] = useState("");
   const [id, setId] = useState(1);
   const [roomNumber, setRoomNumber] = useState("");
   const [keyword, setKeyword] = useState("");
-  const [backendData, setBackendData] = useState([]); //backendData useState
+  const [backendData, setBackendData] = useState([]); 
 	const [status, setStatus] = useState("waiting");
   const [stateCount, setStateCount] = useState(0)
-
-
-  // const [deleteStatus, setDeleteStatus] = useState("");
 
   function storeQuestion(event) {
     setQuestion(event.target.value);
@@ -51,7 +43,6 @@ function App() {
     setRoomNumber("");
     setId(id + 1);
 
-    // POST
     fetch("/tickets", {
       method: "POST",
       headers: {
@@ -88,9 +79,8 @@ function App() {
       body: JSON.stringify({ status: "in progress" }),
     })
       .then((res) => res.json)
-		.then((data) => console.log(data))
-		.then(() => {setStateCount(c => c+1)}) //if state is dependent on setstate use 'c' function
-		
+		  .then((data) => console.log(data))
+		  .then(() => {setStateCount(c => c+1)}) //if state is dependent on setstate use 'c' function
 	}
 	
 	function onUpdateDoneTicket(event) {
@@ -110,20 +100,6 @@ function App() {
       }); //if state is dependent on setstate use 'c' function
   }
 
-  // PATCH
-  // useEffect(() => {
-  //  fetch(`/tickets/${id}`, {
-  //      method: "PATCH",
-  //      headers: {
-  //          "Content-Type": "application/json",
-  //      },
-  //      body: JSON.stringify()
-  //  })
-  //      .then((res) => res.json)
-  //      .then(/*something*/)
-  // }, [/*something*/] )
-
-
   return (
     <div className="App">
       <header className="App-header">
@@ -131,7 +107,8 @@ function App() {
         <CardContainer
           array={backendData}
           onUpdateInProgTicket={onUpdateInProgTicket}
-          onUpdateDoneTicket={onUpdateDoneTicket}></CardContainer>
+          onUpdateDoneTicket={onUpdateDoneTicket}
+        ></CardContainer>
 
         <PopupBox
           nameValue={name}
@@ -143,7 +120,8 @@ function App() {
           keywordsHandleChange={storeKeyword}
           buttonHandleClick={clickSubmit}
           statusValue={status}
-          statusHandleChange={storeStatus}></PopupBox>
+          statusHandleChange={storeStatus}
+        ></PopupBox>
       </header>
     </div>
   );

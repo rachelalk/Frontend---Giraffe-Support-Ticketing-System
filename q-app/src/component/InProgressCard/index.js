@@ -1,20 +1,5 @@
 import React from "react";
 import Button from "../Button/";
-import { useState } from "react";
-
-// function completeQuery(event) {
-// 	console.log(event.currentTarget.id);
-// 	const id = event.currentTarget.id
-// 	fetch(`/tickets/${id}`, {
-// 		method: "PATCH",
-// 		headers: {
-// 			"Content-Type": "application/json",
-// 		},
-// 		body: JSON.stringify({status: "done"})
-//    })
-//        .then((res) => res.json)
-//        .then((data) => console.log(data))
-// }
 
 function InProgressCard(props) {
 	const array = props.array;
