@@ -23,3 +23,5 @@ INSTALLATION INSTRUCTIONS
         npm start
 
 3. After following installation instructions in both w9_backend-project-reactive-giraffe and w9_frontend-project-reactive-giraffe Giraffe Support can be utilised
+
+See a clip of this working <a href=https://twitter.com/rachelalk/status/1543893333893943297>here</a>.
