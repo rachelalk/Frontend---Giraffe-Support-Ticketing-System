@@ -10,7 +10,7 @@ Reactive Giraffe identified issues with the current technical help request syste
 - To mark the completion status of people's help requests (waiting, in-progress or done) 
 - To collect data on request topics
 
-This frontend folder serves w9_backend-project-reactive-giraffe and provides user-side functionality for Giraffe Support.
+This frontend folder serves <a href=https://github.com/rachelalk/Backend---Giraffe-Support-Ticketing-System>w9_backend-project-reactive-giraffe</a> and provides user-side functionality for Giraffe Support.
 
 INSTALLATION INSTRUCTIONS
 
