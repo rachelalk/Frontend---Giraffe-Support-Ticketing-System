@@ -1,10 +1,7 @@
 [[redirects]]
-  from = "/pathx"
-  to = "https://reactive-giraffe-attempt2.herokuapp.com/patha"
+  from = "/search"
+  to = "https://reactive-giraffe-attempt2.herokuapp.com"
   status = 200
+ 
   force = true
   headers = {X-From = "Netlify"}
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
