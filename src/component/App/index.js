@@ -4,6 +4,8 @@ import "./App.css";
 import CardContainer from "../CardContainer";
 import PopupBox from "../PopUp";
 
+	const url = process.env.REACT_APP_BACKEND_URL ?? "http://localhost:3000";
+
 function App() {
 	const [question, setQuestion] = useState("");
 	const [name, setName] = useState("");
@@ -12,7 +14,7 @@ function App() {
 	const [backendData, setBackendData] = useState([]);
 	const [stateCount, setStateCount] = useState(0);
 
-	const url = process.env.REACT_APP_BACKEND_URL ?? "http://localhost:3000";
+
 
 	// To track question typed by user and store in question state
 	function storeQuestion(event) {
